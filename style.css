@@ -1,0 +1,361 @@
+/* --- Global Styles & Reset --- */
+:root {
+    --bg-color: #1a1a1a; /* Base dark background */
+    --header-bg: #111111; /* Even darker for header/nav */
+    --footer-bg: #0d0d0d; /* Darkest for footer */
+    --text-color: #e0e0e0; /* Light text */
+    --accent-color: #00bcd4; /* Vibrant teal accent (You can change this!) */
+    --secondary-color: #2c2c2c; /* Slightly lighter dark for cards/sections */
+    --font-family: 'Montserrat', sans-serif;
+    
+    /* Social Media Colors */
+    --linkedin-color: #0A66C2;
+    --github-color: #FFFFFF;
+    --twitter-color: #1DA1F2;
+    --instagram-color: #E4405F;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    
+    /* ADDING DESIGN BACKGROUND TEXTURE */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><rect width="10" height="10" fill="none"/><path d="M5 0 L10 5 L5 10 L0 5 Z" fill="%23222222" opacity="0.2"/></svg>');
+    background-repeat: repeat;
+}
+
+h1, h2, h3 {
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #008ba3; /* Darker accent on hover */
+}
+
+/* --- Navigation Bar (HEADER) --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 1rem 3rem;
+    background-color: var(--header-bg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+/* Logo Styling */
+.logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.logo-code {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+/* Hamburger Icon (Hidden on Desktop) */
+.menu-icon {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+    display: none; /* Hidden by default on desktop */
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex; /* Makes the links horizontal on desktop */
+}
+
+.navbar nav ul li {
+    margin-left: 2rem;
+}
+
+.navbar nav ul li a {
+    color: var(--text-color);
+    font-weight: 400;
+    position: relative;
+    padding: 5px 0;
+}
+
+/* Underline effect on hover */
+.navbar nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.navbar nav ul li a:hover::after,
+.navbar nav ul li a.active::after {
+    width: 100%;
+}
+/* --- END Navigation Bar Layout --- */
+
+
+/* --- Reusable Elements --- */
+.section {
+    padding: 3rem 10%; 
+    min-height: 100vh;
+}
+
+/* STYLISH HEADING CLASS */
+.stylish-heading {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    text-shadow: 0 0 5px rgba(0, 188, 212, 0.4);
+    text-align: center;
+}
+
+.stylish-heading .accent-text {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--accent-color);
+    display: block;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    margin-top: 1.5rem;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* --- Home (Hero) Section --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 5rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 1rem auto 0;
+    font-weight: 300;
+}
+
+/* --- About Me Section (Content Styling) --- */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    
+    /* Styled background */
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Profile Photo Styling */
+.profile-photo {
+    margin: 0 auto 2rem; 
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--secondary-color);
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.6), 0 0 20px rgba(0, 188, 212, 0.4); 
+    transition: box-shadow 0.3s ease;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Projects Section --- */
+.project-card {
+    background-color: var(--secondary-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+/* --- Contact Section --- */
+.contact {
+    text-align: center;
+}
+
+.contact-info {
+    margin: 2rem auto 1rem;
+}
+
+.email-link {
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--accent-color);
+}
+
+.social-links {
+    margin-top: 2rem;
+    text-align: center; 
+}
+
+/* Social Media Logos - Colored According to Brand */
+.social-links a {
+    font-size: 2rem;
+    margin: 0 0.8rem;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.fa-linkedin { color: var(--linkedin-color); }
+.fa-github-square { color: var(--github-color); }
+.fa-twitter-square { color: var(--twitter-color); }
+.fa-instagram-square { color: var(--instagram-color); }
+
+/* Form Styling */
+.contact-form {
+    max-width: 600px;
+    margin: 2rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+}
+
+.contact-form .button {
+    align-self: center;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--footer-bg);
+    font-size: 0.9rem;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.7);
+}
+
+/* =========================================
+      RESPONSIVENESS & MOBILE MENU
+=========================================
+*/
+@media (max-width: 768px) {
+    /* 1. Header Layout Fix */
+    .navbar {
+        padding: 1rem 1.5rem;
+    }
+
+    /* 2. Show the Hamburger Icon */
+    .menu-icon {
+        display: block; 
+        z-index: 1001; 
+    }
+
+    /* 3. Style the Navigation Menu for Mobile (Hidden by default) */
+    .navbar nav {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Initially hide the menu off-screen */
+        width: 70%;
+        height: 100vh;
+        background-color: var(--header-bg);
+        padding-top: 5rem;
+        box-shadow: -4px 0 10px rgba(0, 0, 0, 0.5);
+        transition: right 0.4s ease;
+        z-index: 1000;
+        display: block;
+    }
+
+    /* 4. Slide the menu into view when 'active' class is toggled by JS */
+    .navbar nav.active {
+        right: 0; 
+    }
+
+    /* 5. Stack links vertically */
+    .navbar nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar nav ul li {
+        margin: 1.5rem 0;
+    }
+
+    /* 6. Hide the underline effect on hover for mobile */
+    .navbar nav ul li a::after {
+        display: none;
+    }
+
+    /* --- Other Mobile Adjustments --- */
+    /* 🎯 REDUCED SECTION PADDING ON MOBILE */
+    .section {
+        padding: 3rem 5%; 
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .stylish-heading {
+        font-size: 2rem;
+    }
+
+    .stylish-heading .accent-text {
+        font-size: 1rem;
+    }
+}

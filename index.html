@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deependra | Portfolio</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="#home">
+                <span class="logo-code">&lt;/&gt;</span> D.R.
+            </a>
+        </div>
+        
+        <div id="menu-icon" class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="#home" onclick="closeMenu()">Home</a></li>
+                <li><a href="#about" onclick="closeMenu()">About Me</a></li>
+                <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="content">
+            <div class="profile-photo">
+                <img src="Porfolio-photo.jpg" alt="Your Name - Profile Picture">
+            </div>
+            <h1>Hi, I'm Deependra Rajput</h1>
+            <p>B.Tech student passionate about creating innovative solutions and building amazing web experiences. Welcome to my personal portfolio website. Hope you enjoy looking around!</p>
+            <a href="#projects" class="button">View My Work</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2 class="stylish-heading">About Me <span class="accent-text"></span></h2>
+        <div class="about-content">
+            <p>I’m passionate about technology and enjoy exploring new domains in computer science. My core skills include web development (HTML, CSS, JavaScript), backend integration, and AI tools. Currently, I’m learning advanced full-stack development and working on projects that solve real-life problems.</p><br>
+            <p>My long-term goal is to grow as a skilled software engineer and contribute to building impactful digital solutions.</p><br>
+            <p>Beyond coding, I love listening music, exploring new ideas, and collaborating with peers to learn and create together.</p>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <h2 class="stylish-heading">Project<span class="accent-text"></span></h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Portfolio Website</h3>
+                <p>A responsive personal portfolio website built with HTML,CSS featuring modern design and smooth animations.</p>
+            </div>
+             <div class="project-card">
+                <h3>Project Title 2</h3>
+                <p>A brief description of your project and the technologies used (e.g., HTML, CSS, JavaScript).</p>
+                <a href="#" target="_blank">View Live</a> | <a href="#" target="_blank">Code</a>
+            </div>
+            </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <h2 class="stylish-heading">Get In Touch<span class="accent-text"></span></h2>
+        <p>I'm always open to new opportunities and collaborations. Drop me a line!</p>
+
+        <form action="https://formspree.io/f/xkgqoebl" method="POST" class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit" class="button">Send Message</button>
+        </form>
+
+        <div class="contact-info">
+            <p>Or email me directly:</p>
+            <a href="deependra.rajput9140@gmail.com" class="Email">deependra.rajput9140@gmail.com</a>
+        </div>
+        
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/deependra-rajput-97bb0b316?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Deependra-Rajput" target="_blank" aria-label="GitHub"><i class="fab fa-github-square"></i></a>
+            <a href="https://x.com/DRajput30050?t=O88mkBUlomQh4nM5lh9c8g&s=09" target="_blank" aria-label="Twitter"><i class="fab fa-twitter-square"></i></a>
+            <a href="https://www.instagram.com/deependra.rajput.94402?igsh=NThrdWdpZHFhNGg1" target="_blank" aria-label="Instagram"><i class="fab fa-instagram-square"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Designed by Deependra❣️| Portfolio</p>
+    </footer>
+
+    <script>
+        const navMenu = document.getElementById('nav-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        function toggleMenu() {
+            // Toggles the 'active' class on the navigation menu
+            navMenu.classList.toggle('active');
+            
+            // Optionally change the icon from bars to X
+            if (navMenu.classList.contains('active')) {
+                menuIcon.querySelector('i').classList.remove('fa-bars');
+                menuIcon.querySelector('i').classList.add('fa-times');
+            } else {
+                menuIcon.querySelector('i').classList.remove('fa-times');
+                menuIcon.querySelector('i').classList.add('fa-bars');
+            }
+        }
+
+        function closeMenu() {
+             // Closes the menu when a link is clicked
+            navMenu.classList.remove('active');
+            menuIcon.querySelector('i').classList.remove('fa-times');
+            menuIcon.querySelector('i').classList.add('fa-bars');
+        }
+    </script>
+
+</body>
+</html>
